@@ -1,1 +1,1 @@
-web: gunicorn 'gracey.wsgi'
+web: python manage.py migrate && gunicorn gracey.wsgi:application
