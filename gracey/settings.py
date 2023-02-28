@@ -3,6 +3,19 @@ import os
 
 from pathlib import Path
 
+from django.utils.encoding import force_str
+
+
+import environ
+
+
+# Initialise environment variables
+env = environ.Env()
+
+environ.Env.read_env()
+
+django.utils.encoding.force_text = force_str
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,12 +26,12 @@ TEMPLATE_DIR = Path(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!961k+o%-#!s-k%qm0%08+1y^q)ktx2gz^yf(xu21si$6!(q)7'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','grace-njeri-production.up.railway.app']
 
 
 # Application definition
@@ -151,7 +164,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'grari9187@gmail.com'
-EMAIL_HOST_PASSWORD = 'zqjgmczbegjxlvmg'
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 CKEDITOR_UPLOAD_PATH ='uploads/'
 

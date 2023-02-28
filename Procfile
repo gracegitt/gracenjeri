@@ -1,1 +1,1 @@
-web: gunicorn app_name.wsgi --log-file -
+web: python manage.py migrate && gunicorn locallibrary.wsgi
