@@ -16,9 +16,9 @@ TEMPLATE_DIR = Path(BASE_DIR, 'templates')
 SECRET_KEY = 'django-insecure-!961k+o%-#!s-k%qm0%08+1y^q)ktx2gz^yf(xu21si$6!(q)7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','https://grace-njeri-production.up.railway.app/']
 
 
 # Application definition
