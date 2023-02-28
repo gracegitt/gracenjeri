@@ -1,0 +1,59 @@
+
+
+{% extends 'portfolio/main.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="main-container">
+  <h3 style="text-align: center;">Some of my past projects</h3>
+  <form method="GET">
+    {{myfilter.form|crispy}}
+    <input class="btn btn-primary" type="submit" value="search">
+  </form>
+  <div class="post-wrapper">
+      {% for post in posts %}
+      <div class="post">
+          <img class="thumbnail" src="{{post.thumbnail.url}}">
+          <div class="post-preview">
+              <h6 class="post-title"> {{post.headline}}</h6>
+              <p class="post-intro"> {{post.sub_headline}} </p>
+              <a href="{% url 'post' post.slug %}"> Read More</a>
+              {% if request.user.is_authenticated %}
+
+              <a href="{% url 'updatepost' post.slug %}"> | Update</a>
+              
+              {% endif %}
+          </div>
+      </div>
+      {% empty %}
+        <h2>No Posts Found..</h2>
+        {% endfor %}
+
+        <div class="row">
+          {% if posts.has_other_pages %}
+
+          <ul class="pagination">
+            {% if posts.has_previous %}
+            <li class="page-item
+              ">
+                <a href="?page={{posts.previous_page_number}}" class="page-link">&laquo;</a></li>
+            {% endif %}
+
+            {% for i in posts.paginator.page_range %}
+             {% if posts.number == i %}
+             <li class="page-item
+             ">
+               <a class="page-link">{{i}}</a></li>
+
+             {% else %}
+              <li class="page-item
+              ">
+                <a href="?page={{i}}" class="page-link">{{i}}</a></li>
+                {% endif %}
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+
+
+
+{% endblock %}

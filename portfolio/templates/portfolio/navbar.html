@@ -1,0 +1,25 @@
+
+<style>
+  a{
+   text-decoration: none;
+  }
+</style>
+<div class="nav-wrapper">
+  <div class="dots-wrapper">
+      <div id="dot-1" class="browser-dot"></div>
+      <div id="dot-2" class="browser-dot"></div>
+      <div id="dot-3" class="browser-dot"></div>
+  </div>
+  <ul id="navigation">
+      <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="{% url 'posts' %}">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Blogs</a></li>
+      {% if request.user.is_authenticated %}
+      <li><a href="{% url 'createpost' %}">CreatePost</a></li>
+
+      {% endif %}
+  </ul>
+
+</div>
+

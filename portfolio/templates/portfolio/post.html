@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Post one</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/default.css' %}">
+    <link id="theme-style" href="blue.css" rel="stylesheet">
+</head>
+
+<body>
+    {% include 'portfolio/navbar.html' %}
+
+    <div class="main-container">
+        <h1>{{post.headline}}</h1>
+        <h3>{{post.sub_headline|linebreaks}}</h3>
+        <img src="{{post.thumbnail.url}}" height="250px">
+        <p>{{post.body |safe}}</p>
+        
+    </div>
+</body>
+
+</html>

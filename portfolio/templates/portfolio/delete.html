@@ -1,0 +1,16 @@
+
+
+{% extends 'portfolio/main.html' %}
+{% block content %}
+<div class="main-container">
+<form action="" method="POST" enctype="multipart/form-data">
+
+  {% csrf_token %}
+ <p>Are you sure you want to delete this project?</p>
+
+  <input class="btn btn-danger" type="submit" value="Confirm"></input>
+
+</form>
+</div>
+
+{% endblock %}
