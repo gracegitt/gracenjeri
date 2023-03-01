@@ -1,6 +1,9 @@
 
 import os
 
+
+import django
+
 from pathlib import Path
 
 from django.utils.encoding import force_str
@@ -31,7 +34,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost','grace-njeri-production.up.railway.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','grace-njeri-production.up.railway.app', 'magnolinb00.pythonanywhere.com']
 
 
 # Application definition
